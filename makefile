@@ -14,11 +14,12 @@ modules=$(comandos_dir)/auditoria/modulo_auditoria.sh \
 	
 
 instalar: shield.sh $(modules) 
-	mkdir $(install_dir)
-	cp $< $(install_dir)
-	chmod 755 $(install_dir)/$<
-	cp -R $(modulos_dir) $(install_dir)
-	ln -s $(install_dir)/$< /usr/bin/$< 
+	./bin/install.sh $(install_dir)
+#	mkdir $(install_dir)
+#	cp $< $(install_dir)
+#	chmod 755 $(install_dir)/$<
+#	cp -R $(modulos_dir) $(install_dir)
+#	ln -s $(install_dir)/$< /usr/bin/$< 
 
 
 desinstalar: $(install_dir)/shield.sh 
