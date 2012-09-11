@@ -1,5 +1,6 @@
 #Donde vamos a instalar el shield
 install_dir=/etc/shield
+user=coco
 
 #Directorio donde tenemos los comandos
 modulos_dir=modulos
@@ -14,20 +15,13 @@ modules=$(comandos_dir)/auditoria/modulo_auditoria.sh \
 	
 
 instalar: shield.sh $(modules) 
-#	./bin/install.sh $(install_dir)
-	mkdir $(install_dir)
-	cp $< $(install_dir)
-	chmod 755 $(install_dir)/$<
-	cp -R $(modulos_dir) $(install_dir)
-	ln -s $(install_dir)/$< /usr/bin/$< 
+	./bin/install.sh $(install_dir)
 
-
-desinstalar: $(install_dir)/shield.sh 
-	rm -R $(install_dir)
-	rm /usr/bin/shield.sh
+desinstalar:  
+	./bin/uninstall.sh $(install_dir)
 
 configurar: 
-	echo "Nada para ver"
+	./bin/config.sh $(user)
 
 resetear: 
 	echo "Nada para ver"
