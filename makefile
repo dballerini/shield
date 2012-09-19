@@ -1,6 +1,6 @@
 #Donde vamos a instalar el shield
 install_dir=/etc/shield
-user=coco
+#user=coco
 
 #Directorio donde tenemos los comandos
 modulos_dir=modulos
@@ -21,7 +21,7 @@ desinstalar:
 	./bin/uninstall.sh $(install_dir)
 
 configurar: 
-	./bin/config.sh $(user)
+	@./bin/config.sh $(user)
 
 resetear: 
 	echo "Nada para ver"

@@ -1,7 +1,7 @@
 #!/bin/bash
 modulos_dir=modulos
 runnable=shield.sh
-
+kernel=bin/kernel.sh
 if [ "$(whoami)" != 'root' ]; then
 	echo "Solo podra instalar shield el user root"
 	exit 1 
@@ -27,8 +27,8 @@ if [ ! -d $install_dir ]; then
 		exit 1
 	fi
 fi
-
 cp $runnable $install_dir
 chmod 755 $install_dir/$runnable
 cp -R $modulos_dir $install_dir
+cp $kernel $install_dir
 ln -s $install_dir/$runnable /usr/bin/$runnable

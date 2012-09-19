@@ -1,7 +1,6 @@
 #!/bin/bash
 modulos_dir=modulos
 runnable=shield.sh
-install_dir=/etc/shield
 
 if [ "$(whoami)" != 'root' ]; then
 	echo "Solo podra configurar shield el user root"
@@ -22,3 +21,6 @@ fi
 
 echo "Configurando Shield a : $user_to_config"
 chsh -s /usr/bin/shield.sh $user_to_config
+eval "mkdir -p ~$user_to_config/.shield" #BDD, se aceptan sugerencias
+eval "cp -r default/* ~$user_to_config/.shield"
+eval "chown $user_to_config ~$user_to_config/.shield"
