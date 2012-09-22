@@ -11,9 +11,9 @@ periodicTasks(){
     sleep $DELAY
   done
 }
+periodicTasks&
 while [ 1 ]
 do
- 	periodicTasks&
 
 	read -p "$USER:shield$ " command
 	echo $command
