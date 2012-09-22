@@ -1,1 +1,1 @@
-echo "Llego la ley"
+echo $@
