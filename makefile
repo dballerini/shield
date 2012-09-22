@@ -24,4 +24,4 @@ configurar:
 	@./bin/config.sh $(user)
 
 resetear: 
-	echo "Nada para ver"
+	@./bin/reset.sh	$(user)
