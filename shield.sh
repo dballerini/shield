@@ -7,7 +7,7 @@ export SHIELD_FOLDER
 periodicTasks(){
  while true
   do
-    execPeriodicModules
+    tick
     sleep $DELAY
   done
 }
