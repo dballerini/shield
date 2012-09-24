@@ -10,7 +10,7 @@ if [ "$users_with_shield" != "" ]; then
 	do
 		echo "$user"
 	done
-	exit 1
+	exit 1 
 fi
 
 if [ "$(whoami)" != 'root' ]; then

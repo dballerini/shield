@@ -21,6 +21,6 @@ fi
 
 echo "Configurando Shield a : $user_to_config"
 chsh -s /usr/bin/shield.sh $user_to_config
-eval "mkdir -p ~$user_to_config/.shield" #BDD, se aceptan sugerencias
-eval "cp -r default/* ~$user_to_config/.shield"
+eval "mkdir -p ~$user_to_config/.shield/config" #BDD, se aceptan sugerencias
+eval "cp -r default/* ~$user_to_config/.shield/config"
 eval "chown $user_to_config ~$user_to_config/.shield"
