@@ -19,6 +19,13 @@ else
 	exit 1
 fi
 
+if [ ! `grep $user_to_config /etc/passwd`  ];then
+	echo "El usuario especificado no existe"
+	exit 1
+else
+	echo "El usuario esta"
+fi
+
 echo "Configurando Shield a : $user_to_config"
 chsh -s /usr/bin/shield.sh $user_to_config
 eval "mkdir -p ~$user_to_config/.shield/config" #BDD, se aceptan sugerencias
