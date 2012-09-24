@@ -21,7 +21,7 @@ wasConfigChange(){
 	LAST_REFETCH_CONFIG=`date`
 }
 loadCommandModules(){
-        for command_module in $(grep ":on" ~/.shield/config/modulos_comando.cfg | awk -F":" '{ print $1 }')
+        for command_module in $(grep ":on" ~/.shield/config/modulos_comando.cfg | uniq| awk -F":" '{ print $1 }')
          do
                 modules=("${modules[@]}" "$module");
                 command_modules=("${command_modules[@]}" "$command_module");
@@ -30,7 +30,7 @@ loadCommandModules(){
 	 export command_modules
 }
 loadPeriodicModules(){
-        for periodic_module in $(grep ":on" ~/.shield/config/modulos_periodicos.cfg | awk -F":" '{ print $1 }')
+        for periodic_module in $(grep ":on" ~/.shield/config/modulos_periodicos.cfg | uniq | awk -F":" '{ print $1 }')
          do
                 modules=("${modules[@]}" "$module");
                 periodic_modules=("${periodic_modules[@]}" "$periodic_module");
@@ -45,7 +45,7 @@ startModules(){
                 RESP=$(. $SHIELD_FOLDER/$module iniciar 2> &1)
                 log "startModules" $module "answer" $RESP
 		if [[ "$RESP" == "error*" ]]; then
-	                echo $ERR | tee -a ~/.shield/shell.log;
+	                echo $RESP | tee -a ~/.shield/shell.log;
                         log "exiting for " $module
                         exit;
                 fi
