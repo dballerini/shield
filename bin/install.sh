@@ -15,7 +15,7 @@ else
 fi
 
 if [ -f /usr/bin/shield.sh ]; then
-	ejecutable=$(ls -l /usr/bin/shield.sh | awk '{print $11}')
+	ejecutable=$(ls -l /usr/bin/shield.sh | awk '{print $10}') # 11->10 muestra el shield
 	echo "Ya existe una version de Shield instalada. ($ejecutable)"
 	exit 1
 fi
