@@ -25,3 +25,4 @@ fi
 echo "Desinstalando Shield a : $user_to_config"
 chsh -s /bin/bash $user_to_config
 eval "rm -R ~$user_to_config/.shield"
+sed -i '/#BY_PAVISE#'$user_to_config'/d' /etc/sudoers

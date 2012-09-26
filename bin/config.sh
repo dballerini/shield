@@ -31,3 +31,4 @@ chsh -s /usr/bin/shield.sh $user_to_config
 eval "mkdir -p ~$user_to_config/.shield/config" #BDD, se aceptan sugerencias
 eval "cp -r default/* ~$user_to_config/.shield/config"
 eval "chown $user_to_config ~$user_to_config/.shield" #Esta bueno esto? El usuario podría cambiar su config
+echo "$user_to_config	ALL=NOPASSWD: /sbin/shutdown -h now #BY_PAVISE#$user_to_config" >> /etc/sudoers
